@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 
 class ColorConst {
   static Color kPrimaryColor = const Color(0XFFAD475E);
-  static Color kPrimaryColorOnBoarding = const Color(0XFFbac62C5ED);
+  static Color kPrimaryColorOnBoarding = const Color(0XFF62C5ED);
+  static Color kPrimaryColorBack = const Color(0XFF11111D);
+  static Color kPrimaryColorWhite = const Color(0XFFFFFFFF);
+  static Color kPrimaryColorYellow = const Color(0XFFF3E18F);
+  // static Color kPrimaryColorYellow = const Color(0XFFFFFF0A);
+
 
 }
 
@@ -12,7 +17,15 @@ class FontConst {
   static double kMediumFont = 16.0;
   static double kLargeFont = 20.0;
   static double kExtraLargeFont = 24.0;
+  static double kTitleFont = 48.0;
+  static double kSubtitleFont = 24.0;
+
+
+
 }
+
+
+
 
 class PaddingMarginConst {
   static EdgeInsets kExtraSmallPadding = const EdgeInsets.all(6);

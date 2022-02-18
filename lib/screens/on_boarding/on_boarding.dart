@@ -7,47 +7,53 @@ class Onboarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Sport',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 48,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  Text(
-                    'fast news',
-                    style: TextStyle(
-                      color: ColorConst.kPrimaryColorOnBoarding,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            flex: 3,
+      backgroundColor: ColorConst.kPrimaryColorBack,
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage('assets/img/5618236.png'),
           ),
-          Expanded(
-            flex: 7,
-            child: Container(
-              decoration: const BoxDecoration(
-                color: Colors.red,
-                image: DecorationImage(
-                  image: AssetImage('s'),
+        ),
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.only(top: 70),
+              child: Center(
+                child: Column(
+                  children: [
+                    Text(
+                      'Sport',
+                      style: TextStyle(
+                        color: ColorConst.kPrimaryColorWhite,
+                        fontSize: FontConst.kTitleFont,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    Text(
+                      'fast news',
+                      style: TextStyle(
+                        color: ColorConst.kPrimaryColorOnBoarding,
+                        fontSize: FontConst.kSubtitleFont,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
-          ),
-        ],
+            Container(
+              height: MediaQuery.of(context).size.height*0.7,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage('assets/img/Group20.png'),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
