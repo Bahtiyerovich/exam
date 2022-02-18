@@ -6,7 +6,7 @@ class ColorConst {
   static Color kPrimaryColorBack = const Color(0XFF11111D);
   static Color kPrimaryColorWhite = const Color(0XFFFFFFFF);
   static Color kPrimaryColorYellow = const Color(0XFFF3E18F);
-  // static Color kPrimaryColorYellow = const Color(0XFFFFFF0A);
+  static Color kPrimaryColorGrey = const Color(0XFF4a525c);
 
 
 }
@@ -14,18 +14,12 @@ class ColorConst {
 class FontConst {
   static double kExtraSmallFont = 8.0;
   static double kSmallFont = 12.0;
-  static double kMediumFont = 16.0;
+  static double kMediumFont = 18.0;
   static double kLargeFont = 20.0;
   static double kExtraLargeFont = 24.0;
   static double kTitleFont = 48.0;
   static double kSubtitleFont = 24.0;
-
-
-
 }
-
-
-
 
 class PaddingMarginConst {
   static EdgeInsets kExtraSmallPadding = const EdgeInsets.all(6);
