@@ -7,6 +7,7 @@ class ColorConst {
   static Color kPrimaryColorWhite = const Color(0XFFFFFFFF);
   static Color kPrimaryColorYellow = const Color(0XFFF3E18F);
   static Color kPrimaryColorGrey = const Color(0XFF4a525c);
+  static Color kPrimaryColorDark = const Color(0XFF1b1b26);
 
 
 }

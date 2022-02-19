@@ -12,10 +12,10 @@ class MyRoute {
       //   return MaterialPageRoute(builder: (context) => const Onboarding());
       // case '/':
       //   return MaterialPageRoute(builder: (context) => const LoginPage());
-         case '/':
-        return MaterialPageRoute(builder: (context) => const SignUpPage());
-        //   case '/':
-        // return MaterialPageRoute(builder: (context) => const HomePage());
+        //  case '/':
+        // return MaterialPageRoute(builder: (context) => const SignUpPage());
+          case '/':
+        return MaterialPageRoute(builder: (context) => const HomePage());
     }
   }
 }

@@ -1,8 +1,27 @@
+import 'dart:async';
+
 import 'package:examproject/core/const/const.dart';
+import 'package:examproject/screens/auth/register_page.dart';
 import 'package:flutter/material.dart';
 
-class Onboarding extends StatelessWidget {
+class Onboarding extends StatefulWidget {
   const Onboarding({Key? key}) : super(key: key);
+
+  @override
+  State<Onboarding> createState() => _OnboardingState();
+}
+
+class _OnboardingState extends State<Onboarding> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const SignUpPage()),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +63,7 @@ class Onboarding extends StatelessWidget {
               ),
             ),
             Container(
-              height: MediaQuery.of(context).size.height*0.7,
+              height: MediaQuery.of(context).size.height * 0.7,
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
