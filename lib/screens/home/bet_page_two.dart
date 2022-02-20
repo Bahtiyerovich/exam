@@ -2,14 +2,14 @@ import 'package:examproject/core/const/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class BetPage extends StatefulWidget {
-  const BetPage({Key? key}) : super(key: key);
+class BetPageTwo extends StatefulWidget {
+  const BetPageTwo({Key? key}) : super(key: key);
 
   @override
-  _BetPageState createState() => _BetPageState();
+  _BetPageTwoState createState() => _BetPageTwoState();
 }
 
-class _BetPageState extends State<BetPage> {
+class _BetPageTwoState extends State<BetPageTwo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,67 +24,29 @@ class _BetPageState extends State<BetPage> {
                 image: AssetImage('assets/img/bra-arg.png'),
               ),
             ),
-            child: Container(
-              height: 300,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage('assets/img/Rectangle657.png'),
-                ),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(top: 35, right: 15, left: 15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Icon(
-                          Icons.person_add_alt_1_outlined,
-                          color: ColorConst.kPrimaryColorWhite,
-                          size: 25,
-                        ),
-                        Icon(
-                          Icons.more_vert_rounded,
-                          color: ColorConst.kPrimaryColorWhite,
-                          size: 25,
-                        ),
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(50.0),
-                      child: Center(
-                        child: IconButton(
-                          onPressed: () {
-                            setState(() {
-
-                              Navigator.pushReplacementNamed(context, "/bettwo");
-                            });
-                          },
-                          icon: SvgPicture.asset(
-                            'assets/img/Group97.svg',
-                          ),
-                        ),
-                      ),
-                    ),
-                    Text(
-                      'Copa America Final 2022',
-                      style: TextStyle(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 35, right: 15, left: 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Icon(
+                        Icons.person_add_alt_1_outlined,
                         color: ColorConst.kPrimaryColorWhite,
-                        fontSize: FontConst.kExtraLargeFont,
-                        fontWeight: FontWeight.w700,
+                        size: 25,
                       ),
-                    ),
-                    Text(
-                      'John Doe, Antony, Alen + 32 Others',
-                      style: TextStyle(
+                      Icon(
+                        Icons.more_vert_rounded,
                         color: ColorConst.kPrimaryColorWhite,
-                        fontSize: FontConst.kSmallFont,
-                        fontWeight: FontWeight.w500,
+                        size: 25,
                       ),
-                    ),
-                    Container(
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 191),
+                    child: Container(
                       child: Row(
                         children: [
                           Text(
@@ -131,8 +93,8 @@ class _BetPageState extends State<BetPage> {
                         ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),

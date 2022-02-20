@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class ColorConst {
-  static Color kPrimaryColor = const Color(0XFFAD475E);
   static Color kPrimaryColorOnBoarding = const Color(0XFF62C5ED);
   static Color kPrimaryColorBack = const Color(0XFF11111D);
   static Color kPrimaryColorWhite = const Color(0XFFFFFFFF);
@@ -14,6 +13,7 @@ class ColorConst {
   static Color kPrimaryColorGreen = const Color(0XFF0AC291);
   static Color kPrimaryColorBB = const Color(0XFF000000);
   static Color kPrimaryColorOrange = const Color(0XFFDD7E06);
+  static Color kPrimaryColorBlue = const Color(0XFF74ACDF);
 
 }
 
@@ -36,6 +36,7 @@ class PaddingMarginConst {
 }
 
 class RadiusConst {
+  static double kTooExtraSmallRadius = 5.0;
   static double kExtraSmallRadius = 8.0;
   static double kSmallRadius = 12.0;
   static double kMediumRadius = 16.0;

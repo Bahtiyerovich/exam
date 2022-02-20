@@ -1,4 +1,7 @@
 import 'package:examproject/core/const/const.dart';
+import 'package:examproject/data/user_data.dart';
+import 'package:examproject/model/stadium_model.dart';
+import 'package:examproject/screens/home/bet_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -12,22 +15,37 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _cI = 0;
+  final List<StadiumModel> _stadium = List.generate(
+    3,
+    (index) => StadiumModel(
+      photo: '$index',
+      name: '$index',
+      km: '$index',
+      score: '$index',
+    ),
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // bottomNavigationBar: BottomNavigationBar(
-      //   backgroundColor: Colors.transparent,
-      //   selectedItemColor: ColorConst.kPrimaryColorOnBoarding,
-      //   unselectedItemColor: ColorConst.kPrimaryColorGrey,
-      //   showUnselectedLabels: true,
-      //   currentIndex: _cI,
-      //   onTap: (int index) {
-      //     setState(() {
-      //       _cI = index;
-      //     });
-      //   },
-      //   items: [],
-      // ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: ColorConst.kPrimaryColorGrey,
+        selectedItemColor: ColorConst.kPrimaryColorOnBoarding,
+        unselectedItemColor: ColorConst.kPrimaryColorGrey,
+        showUnselectedLabels: true,
+        currentIndex: _cI,
+        onTap: (int index) {
+          setState(() {
+            _cI = index;
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.bookmark_outlined), label: 'Saved'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profil'),
+        ],
+      ),
       backgroundColor: ColorConst.kPrimaryColorBack,
       body: SingleChildScrollView(
         child: Column(children: [
@@ -277,11 +295,6 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                        child: Row(
-                          children: [],
-                        ),
-                      ),
-                      Positioned(
                         top: 18,
                         left: 18.5,
                         child: Container(
@@ -434,76 +447,6 @@ class _HomePageState extends State<HomePage> {
               }),
             ),
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 15),
-            height: MediaQuery.of(context).size.height * 0.1,
-            color: ColorConst.kPrimaryColorDark,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Column(
-                  children: [
-                    Icon(
-                      Icons.home_filled,
-                      size: 40,
-                      color: ColorConst.kPrimaryColorOnBoarding,
-                    ),
-                    Text(
-                      'Home',
-                      style: TextStyle(
-                        color: ColorConst.kPrimaryColorOnBoarding,
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Icon(
-                      Icons.search,
-                      size: 40,
-                      color: ColorConst.kPrimaryColorGrey,
-                    ),
-                    Text(
-                      'Search',
-                      style: TextStyle(
-                        color: ColorConst.kPrimaryColorGrey,
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Icon(
-                      Icons.bookmark_outlined,
-                      size: 40,
-                      color: ColorConst.kPrimaryColorGrey,
-                    ),
-                    Text(
-                      'Saved',
-                      style: TextStyle(
-                        color: ColorConst.kPrimaryColorGrey,
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Icon(
-                      Icons.person,
-                      size: 40,
-                      color: ColorConst.kPrimaryColorGrey,
-                    ),
-                    Text(
-                      'Profil',
-                      style: TextStyle(
-                        color: ColorConst.kPrimaryColorGrey,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
           Padding(
             padding: const EdgeInsets.only(right: 270, top: 20, bottom: 20),
             child: Text(
@@ -516,624 +459,672 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          Stack(
-            children: [
-              Positioned(
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.15,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  decoration: BoxDecoration(
-                    image: const DecorationImage(
-                      alignment: Alignment(-0.9, 0),
-                      image: AssetImage('assets/img/Rectangle128.png'),
-                    ),
-                    border: Border.all(color: ColorConst.kPrimaryColorGrey),
-                    borderRadius: BorderRadius.circular(
-                      RadiusConst.kMediumRadius,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                child: Padding(
-                  padding: EdgeInsets.only(left: 130, top: 20),
-                  child: Row(
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Copa America Final 2022',
-                            style: TextStyle(
-                              color: ColorConst.kPrimaryColorWhite,
-                              fontSize: FontConst.kSmallFont,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child:
-                                    SvgPicture.asset('assets/img/Location.svg'),
-                              ),
-                              Text(
-                                'Sergili, Tashkent',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: FontConst.kSmallFont,
-                                  color: ColorConst.kPrimaryColorWhite,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child: SvgPicture.asset(
-                                    'assets/img/TimeCircle.svg'),
-                              ),
-                              Text(
-                                'Available time:',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  color: ColorConst.kPrimaryColorWhite,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8),
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(3.0),
-                                  child:
-                                      SvgPicture.asset('assets/img/Star.svg'),
-                                ),
-                                Text(
-                                  '3.6',
-                                  style: TextStyle(
-                                    color: ColorConst.kPrimaryColorYellow,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 20,
-                                ),
-                                Text(
-                                  '\$15',
-                                  style: TextStyle(
-                                    color: ColorConst.kPrimaryColorYellow,
-                                    fontSize: FontConst.kMediumFont,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                top: 10,
-                right: 40,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    IconButton(
-                      iconSize: 20,
-                      onPressed: () {},
-                      icon: SvgPicture.asset(
-                        'assets/img/Group27.svg',
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: Text(
-                        '09:00-11:00',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w300,
-                          color: ColorConst.kPrimaryColorOnBoarding,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: PaddingMarginConst.kExtraSmallPadding,
-                      height: MediaQuery.of(context).size.height * 0.025,
-                      width: MediaQuery.of(context).size.width * 0.14,
-                      decoration: BoxDecoration(
-                        color: ColorConst.kPrimaryColorOnBoarding,
-                        borderRadius: BorderRadius.circular(
-                            RadiusConst.kExtraSmallRadius),
-                      ),
-                      child: Center(
-                        child: Text(
-                          '9.6 km',
-                          style: TextStyle(
-                            fontSize: FontConst.kSmallFont,
-                            fontWeight: FontWeight.w500,
-                            color: ColorConst.kPrimaryColorWhite,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Stack(
-            children: [
-              Positioned(
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.15,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  decoration: BoxDecoration(
-                    image: const DecorationImage(
-                      alignment: Alignment(-0.9, 0),
-                      image: AssetImage('assets/img/Rectangle228.png'),
-                    ),
-                    border: Border.all(color: ColorConst.kPrimaryColorGrey),
-                    borderRadius: BorderRadius.circular(
-                      RadiusConst.kMediumRadius,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 130, top: 20),
-                  child: Row(
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Copa America Final 2022',
-                            style: TextStyle(
-                              color: ColorConst.kPrimaryColorWhite,
-                              fontSize: FontConst.kSmallFont,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child:
-                                    SvgPicture.asset('assets/img/Location.svg'),
-                              ),
-                              Text(
-                                'Sergili, Tashkent',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: FontConst.kSmallFont,
-                                  color: ColorConst.kPrimaryColorWhite,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child: SvgPicture.asset(
-                                    'assets/img/TimeCircle.svg'),
-                              ),
-                              Text(
-                                'Available time:',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  color: ColorConst.kPrimaryColorWhite,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8),
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(3.0),
-                                  child:
-                                      SvgPicture.asset('assets/img/Star.svg'),
-                                ),
-                                Text(
-                                  '3.6',
-                                  style: TextStyle(
-                                    color: ColorConst.kPrimaryColorYellow,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 20,
-                                ),
-                                Text(
-                                  '\$15',
-                                  style: TextStyle(
-                                    color: ColorConst.kPrimaryColorYellow,
-                                    fontSize: FontConst.kMediumFont,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                top: 10,
-                right: 40,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    IconButton(
-                      iconSize: 20,
-                      onPressed: () {},
-                      icon: SvgPicture.asset(
-                        'assets/img/Group27.svg',
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: Text(
-                        '09:00-11:00',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w300,
-                          color: ColorConst.kPrimaryColorOnBoarding,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: PaddingMarginConst.kExtraSmallPadding,
-                      height: MediaQuery.of(context).size.height * 0.025,
-                      width: MediaQuery.of(context).size.width * 0.14,
-                      decoration: BoxDecoration(
-                        color: ColorConst.kPrimaryColorOnBoarding,
-                        borderRadius: BorderRadius.circular(
-                            RadiusConst.kExtraSmallRadius),
-                      ),
-                      child: Center(
-                        child: Text(
-                          '9.6 km',
-                          style: TextStyle(
-                            fontSize: FontConst.kSmallFont,
-                            fontWeight: FontWeight.w500,
-                            color: ColorConst.kPrimaryColorWhite,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: TableCalendar(
-              calendarStyle: CalendarStyle(
-                defaultTextStyle: TextStyle(
-                  color: ColorConst.kPrimaryColorWhite,
+            child: Column(
+              children: [
+                Stack(
+                  children: [
+                    Positioned(
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.15,
+                        width: MediaQuery.of(context).size.width * 0.95,
+                        decoration: BoxDecoration(
+                          image: const DecorationImage(
+                            alignment: Alignment(-0.9, 0),
+                            image: AssetImage('assets/img/Rectangle128.png'),
+                          ),
+                          border:
+                              Border.all(color: ColorConst.kPrimaryColorGrey),
+                          borderRadius: BorderRadius.circular(
+                            RadiusConst.kMediumRadius,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 115, top: 20),
+                        child: Row(
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const BetPage()),
+                                    );
+                                  },
+                                  child: Text(
+                                    'Copa America Final 2022',
+                                    style: TextStyle(
+                                      color: ColorConst.kPrimaryColorWhite,
+                                      fontSize: FontConst.kSmallFont,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 5, right: 3, bottom: 4),
+                                      child: SvgPicture.asset(
+                                          'assets/img/Location.svg'),
+                                    ),
+                                    Text(
+                                      'Sergili, Tashkent',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w300,
+                                        fontSize: FontConst.kSmallFont,
+                                        color: ColorConst.kPrimaryColorWhite,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 5, right: 3, bottom: 4),
+                                      child: SvgPicture.asset(
+                                          'assets/img/TimeCircle.svg'),
+                                    ),
+                                    Text(
+                                      'Available time:',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w300,
+                                        color: ColorConst.kPrimaryColorWhite,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 8),
+                                  child: Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: 5, right: 3, bottom: 4),
+                                        child: SvgPicture.asset(
+                                            'assets/img/Star.svg'),
+                                      ),
+                                      Text(
+                                        '3.6',
+                                        style: TextStyle(
+                                          color: ColorConst.kPrimaryColorYellow,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        width: 20,
+                                      ),
+                                      Text(
+                                        '\$15',
+                                        style: TextStyle(
+                                          color: ColorConst.kPrimaryColorYellow,
+                                          fontSize: FontConst.kMediumFont,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 10,
+                      right: 23,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          IconButton(
+                            iconSize: 20,
+                            onPressed: () {},
+                            icon: SvgPicture.asset(
+                              'assets/img/Group27.svg',
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            child: Text(
+                              '09:00-11:00',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                color: ColorConst.kPrimaryColorOnBoarding,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: PaddingMarginConst.kExtraSmallPadding,
+                            height: MediaQuery.of(context).size.height * 0.025,
+                            width: MediaQuery.of(context).size.width * 0.14,
+                            decoration: BoxDecoration(
+                              color: ColorConst.kPrimaryColorOnBoarding,
+                              borderRadius: BorderRadius.circular(
+                                  RadiusConst.kExtraSmallRadius),
+                            ),
+                            child: Center(
+                              child: Text(
+                                '9.6 km',
+                                style: TextStyle(
+                                  fontSize: FontConst.kSmallFont,
+                                  fontWeight: FontWeight.w500,
+                                  color: ColorConst.kPrimaryColorWhite,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
                 ),
-              ),
-              firstDay: DateTime.utc(2022, 02, 01),
-              lastDay: DateTime.utc(2022, 02, 28),
-              focusedDay: DateTime.now(),
+                const SizedBox(
+                  height: 20,
+                ),
+                Stack(
+                  children: [
+                    Positioned(
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.15,
+                        width: MediaQuery.of(context).size.width * 0.95,
+                        decoration: BoxDecoration(
+                          image: const DecorationImage(
+                            alignment: Alignment(-0.9, 0),
+                            image: AssetImage('assets/img/Rectangle228.png'),
+                          ),
+                          border:
+                              Border.all(color: ColorConst.kPrimaryColorGrey),
+                          borderRadius: BorderRadius.circular(
+                            RadiusConst.kMediumRadius,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 115, top: 20),
+                        child: Row(
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Arsenal vs. Liverpol',
+                                  style: TextStyle(
+                                    color: ColorConst.kPrimaryColorWhite,
+                                    fontSize: FontConst.kSmallFont,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 5, right: 3, bottom: 4),
+                                      child: SvgPicture.asset(
+                                          'assets/img/Location.svg'),
+                                    ),
+                                    Text(
+                                      'Sergili, Tashkent',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w300,
+                                        fontSize: FontConst.kSmallFont,
+                                        color: ColorConst.kPrimaryColorWhite,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 5, right: 3, bottom: 4),
+                                      child: SvgPicture.asset(
+                                          'assets/img/TimeCircle.svg'),
+                                    ),
+                                    Text(
+                                      'Available time:',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w300,
+                                        color: ColorConst.kPrimaryColorWhite,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 8),
+                                  child: Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: 5, right: 3, bottom: 4),
+                                        child: SvgPicture.asset(
+                                            'assets/img/Star.svg'),
+                                      ),
+                                      Text(
+                                        '3.6',
+                                        style: TextStyle(
+                                          color: ColorConst.kPrimaryColorYellow,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        width: 20,
+                                      ),
+                                      Text(
+                                        '\$15',
+                                        style: TextStyle(
+                                          color: ColorConst.kPrimaryColorYellow,
+                                          fontSize: FontConst.kMediumFont,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 10,
+                      right: 23,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          IconButton(
+                            iconSize: 20,
+                            onPressed: () {},
+                            icon: SvgPicture.asset(
+                              'assets/img/Group27.svg',
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            child: Text(
+                              '09:00-11:00',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                color: ColorConst.kPrimaryColorOnBoarding,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: PaddingMarginConst.kExtraSmallPadding,
+                            height: MediaQuery.of(context).size.height * 0.025,
+                            width: MediaQuery.of(context).size.width * 0.14,
+                            decoration: BoxDecoration(
+                              color: ColorConst.kPrimaryColorOnBoarding,
+                              borderRadius: BorderRadius.circular(
+                                  RadiusConst.kExtraSmallRadius),
+                            ),
+                            child: Center(
+                              child: Text(
+                                '9.6 km',
+                                style: TextStyle(
+                                  fontSize: FontConst.kSmallFont,
+                                  fontWeight: FontWeight.w500,
+                                  color: ColorConst.kPrimaryColorWhite,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TableCalendar(
+                    calendarStyle: CalendarStyle(
+                      defaultTextStyle: TextStyle(
+                        color: ColorConst.kPrimaryColorWhite,
+                      ),
+                    ),
+                    firstDay: DateTime.utc(2022, 02, 01),
+                    lastDay: DateTime.utc(2022, 02, 28),
+                    focusedDay: DateTime.now(),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                          primary: ColorConst.kPrimaryColorGrey,
+                        ),
+                        child: const Text('Cancel'),
+                        onPressed: () {},
+                      ),
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: ColorConst.kPrimaryColorOnBoarding,
+                          ),
+                          onPressed: () {},
+                          child: const Text('Done')),
+                    ],
+                  ),
+                ),
+                Stack(
+                  children: [
+                    Positioned(
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.15,
+                        width: MediaQuery.of(context).size.width * 0.95,
+                        decoration: BoxDecoration(
+                          image: const DecorationImage(
+                            alignment: Alignment(-0.9, 0),
+                            image: AssetImage('assets/img/Rectangle228.png'),
+                          ),
+                          border: Border.all(
+                              color: ColorConst.kPrimaryColorOnBoarding),
+                          borderRadius: BorderRadius.circular(
+                            RadiusConst.kMediumRadius,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 115, top: 20),
+                        child: Row(
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Lokomotiv Stadium',
+                                  style: TextStyle(
+                                    color: ColorConst.kPrimaryColorWhite,
+                                    fontSize: FontConst.kSmallFont,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 5, right: 3, bottom: 4),
+                                      child: SvgPicture.asset(
+                                          'assets/img/Location.svg'),
+                                    ),
+                                    Text(
+                                      'Sergili, Tashkent',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w300,
+                                        fontSize: FontConst.kSmallFont,
+                                        color: ColorConst.kPrimaryColorWhite,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 5, right: 3, bottom: 4),
+                                      child: SvgPicture.asset(
+                                          'assets/img/TimeCircle.svg'),
+                                    ),
+                                    Text(
+                                      'Available time:',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w300,
+                                        color: ColorConst.kPrimaryColorWhite,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 8),
+                                  child: Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: 5, right: 3, bottom: 4),
+                                        child: SvgPicture.asset(
+                                            'assets/img/Star.svg'),
+                                      ),
+                                      Text(
+                                        '3.6',
+                                        style: TextStyle(
+                                          color: ColorConst.kPrimaryColorYellow,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 10,
+                      right: 23,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          IconButton(
+                            iconSize: 20,
+                            onPressed: () {},
+                            icon: SvgPicture.asset(
+                              'assets/img/Bookmarkyellow.svg',
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            child: Text(
+                              '09:00-11:00',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                color: ColorConst.kPrimaryColorOnBoarding,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: PaddingMarginConst.kExtraSmallPadding,
+                            height: MediaQuery.of(context).size.height * 0.025,
+                            width: MediaQuery.of(context).size.width * 0.14,
+                            decoration: BoxDecoration(
+                              color: ColorConst.kPrimaryColorOnBoarding,
+                              borderRadius: BorderRadius.circular(
+                                  RadiusConst.kExtraSmallRadius),
+                            ),
+                            child: Center(
+                              child: Text(
+                                '9.6 km',
+                                style: TextStyle(
+                                  fontSize: FontConst.kSmallFont,
+                                  fontWeight: FontWeight.w500,
+                                  color: ColorConst.kPrimaryColorWhite,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Stack(
+                  children: [
+                    Positioned(
+                      child: Container(
+                        height: MediaQuery.of(context).size.height * 0.15,
+                        width: MediaQuery.of(context).size.width * 0.95,
+                        decoration: BoxDecoration(
+                          image: const DecorationImage(
+                            alignment: Alignment(-0.9, 0),
+                            image: AssetImage('assets/img/Rectangle228.png'),
+                          ),
+                          border: Border.all(
+                              color: ColorConst.kPrimaryColorOnBoarding),
+                          borderRadius: BorderRadius.circular(
+                            RadiusConst.kMediumRadius,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 115, top: 20),
+                        child: Row(
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Lokomotiv Stadium',
+                                  style: TextStyle(
+                                    color: ColorConst.kPrimaryColorWhite,
+                                    fontSize: FontConst.kSmallFont,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 5, right: 3, bottom: 4),
+                                      child: SvgPicture.asset(
+                                          'assets/img/Location.svg'),
+                                    ),
+                                    Text(
+                                      'Sergili, Tashkent',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w300,
+                                        fontSize: FontConst.kSmallFont,
+                                        color: ColorConst.kPrimaryColorWhite,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 5, right: 3, bottom: 4),
+                                      child: SvgPicture.asset(
+                                          'assets/img/TimeCircle.svg'),
+                                    ),
+                                    Text(
+                                      'Available time:',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w300,
+                                        color: ColorConst.kPrimaryColorWhite,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 8),
+                                  child: Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: 5, right: 3, bottom: 4),
+                                        child: SvgPicture.asset(
+                                            'assets/img/Star.svg'),
+                                      ),
+                                      Text(
+                                        '3.6',
+                                        style: TextStyle(
+                                          color: ColorConst.kPrimaryColorYellow,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: 10,
+                      right: 23,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          IconButton(
+                            iconSize: 20,
+                            onPressed: () {},
+                            icon: SvgPicture.asset(
+                              'assets/img/Bookmarkyellow.svg',
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            child: Text(
+                              '09:00-11:00',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                color: ColorConst.kPrimaryColorOnBoarding,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: PaddingMarginConst.kExtraSmallPadding,
+                            height: MediaQuery.of(context).size.height * 0.025,
+                            width: MediaQuery.of(context).size.width * 0.14,
+                            decoration: BoxDecoration(
+                              color: ColorConst.kPrimaryColorOnBoarding,
+                              borderRadius: BorderRadius.circular(
+                                  RadiusConst.kExtraSmallRadius),
+                            ),
+                            child: Center(
+                              child: Text(
+                                '9.6 km',
+                                style: TextStyle(
+                                  fontSize: FontConst.kSmallFont,
+                                  fontWeight: FontWeight.w500,
+                                  color: ColorConst.kPrimaryColorWhite,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ],
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              OutlinedButton(
-                child: Text('Cancel'),
-                onPressed: () {},
-              ),
-              ElevatedButton(onPressed: () {}, child: Text('Done')),
-            ],
-          ),
-          Stack(
-            children: [
-              Positioned(
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.15,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  decoration: BoxDecoration(
-                    image: const DecorationImage(
-                      alignment: Alignment(-0.9, 0),
-                      image: AssetImage('assets/img/Rectangle228.png'),
-                    ),
-                    border: Border.all(color: ColorConst.kPrimaryColorGrey),
-                    borderRadius: BorderRadius.circular(
-                      RadiusConst.kMediumRadius,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                child: Padding(
-                  padding: EdgeInsets.only(left: 130, top: 20),
-                  child: Row(
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Lokomotiv Stadium',
-                            style: TextStyle(
-                              color: ColorConst.kPrimaryColorWhite,
-                              fontSize: FontConst.kSmallFont,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child:
-                                    SvgPicture.asset('assets/img/Location.svg'),
-                              ),
-                              Text(
-                                'Sergili, Tashkent',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: FontConst.kSmallFont,
-                                  color: ColorConst.kPrimaryColorWhite,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child: SvgPicture.asset(
-                                    'assets/img/TimeCircle.svg'),
-                              ),
-                              Text(
-                                'Available time:',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  color: ColorConst.kPrimaryColorWhite,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8),
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(3.0),
-                                  child:
-                                      SvgPicture.asset('assets/img/Star.svg'),
-                                ),
-                                Text(
-                                  '3.6',
-                                  style: TextStyle(
-                                    color: ColorConst.kPrimaryColorYellow,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                top: 10,
-                right: 40,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    IconButton(
-                      iconSize: 20,
-                      onPressed: () {},
-                      icon: SvgPicture.asset(
-                        'assets/img/Bookmarkyellow.svg',
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: Text(
-                        '09:00-11:00',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w300,
-                          color: ColorConst.kPrimaryColorOnBoarding,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: PaddingMarginConst.kExtraSmallPadding,
-                      height: MediaQuery.of(context).size.height * 0.025,
-                      width: MediaQuery.of(context).size.width * 0.14,
-                      decoration: BoxDecoration(
-                        color: ColorConst.kPrimaryColorOnBoarding,
-                        borderRadius: BorderRadius.circular(
-                            RadiusConst.kExtraSmallRadius),
-                      ),
-                      child: Center(
-                        child: Text(
-                          '9.6 km',
-                          style: TextStyle(
-                            fontSize: FontConst.kSmallFont,
-                            fontWeight: FontWeight.w500,
-                            color: ColorConst.kPrimaryColorWhite,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Stack(
-            children: [
-              Positioned(
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.15,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  decoration: BoxDecoration(
-                    image: const DecorationImage(
-                      alignment: Alignment(-0.9, 0),
-                      image: AssetImage('assets/img/Rectangle228.png'),
-                    ),
-                    border: Border.all(color: ColorConst.kPrimaryColorGrey),
-                    borderRadius: BorderRadius.circular(
-                      RadiusConst.kMediumRadius,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 130, top: 20),
-                  child: Row(
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Lokomotiv Stadium',
-                            style: TextStyle(
-                              color: ColorConst.kPrimaryColorWhite,
-                              fontSize: FontConst.kSmallFont,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child:
-                                    SvgPicture.asset('assets/img/Location.svg'),
-                              ),
-                              Text(
-                                'Sergili, Tashkent',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: FontConst.kSmallFont,
-                                  color: ColorConst.kPrimaryColorWhite,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(3.0),
-                                child: SvgPicture.asset(
-                                    'assets/img/TimeCircle.svg'),
-                              ),
-                              Text(
-                                'Available time:',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  color: ColorConst.kPrimaryColorWhite,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8),
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(3.0),
-                                  child:
-                                      SvgPicture.asset('assets/img/Star.svg'),
-                                ),
-                                Text(
-                                  '3.6',
-                                  style: TextStyle(
-                                    color: ColorConst.kPrimaryColorYellow,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                top: 10,
-                right: 40,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    IconButton(
-                      iconSize: 20,
-                      onPressed: () {},
-                      icon: SvgPicture.asset(
-                        'assets/img/Bookmarkyellow.svg',
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: Text(
-                        '09:00-11:00',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w300,
-                          color: ColorConst.kPrimaryColorOnBoarding,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: PaddingMarginConst.kExtraSmallPadding,
-                      height: MediaQuery.of(context).size.height * 0.025,
-                      width: MediaQuery.of(context).size.width * 0.14,
-                      decoration: BoxDecoration(
-                        color: ColorConst.kPrimaryColorOnBoarding,
-                        borderRadius: BorderRadius.circular(
-                            RadiusConst.kExtraSmallRadius),
-                      ),
-                      child: Center(
-                        child: Text(
-                          '9.6 km',
-                          style: TextStyle(
-                            fontSize: FontConst.kSmallFont,
-                            fontWeight: FontWeight.w500,
-                            color: ColorConst.kPrimaryColorWhite,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              )
-            ],
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.5,
@@ -1170,10 +1161,10 @@ class _HomePageState extends State<HomePage> {
                           decoration: BoxDecoration(
                             borderRadius:
                                 BorderRadius.circular(RadiusConst.kSmallRadius),
-                            image: const DecorationImage(
+                            image: DecorationImage(
                               fit: BoxFit.cover,
                               image: AssetImage(
-                                'assets/img/Rectangle241.png',
+                                (StadiumInfo.stadium[index]['photo']),
                               ),
                             ),
                           ),
@@ -1186,7 +1177,7 @@ class _HomePageState extends State<HomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Lokomotive S',
+                              (StadiumInfo.stadium[index]['name']),
                               style: TextStyle(
                                 fontWeight: FontWeight.w400,
                                 color: ColorConst.kPrimaryColorWhite,
@@ -1202,7 +1193,7 @@ class _HomePageState extends State<HomePage> {
                                           'assets/img/Location.svg'),
                                     ),
                                     Text(
-                                      '3.9 km',
+                                      (StadiumInfo.stadium[index]['km']),
                                       style: TextStyle(
                                         fontWeight: FontWeight.w300,
                                         fontSize: FontConst.kSmallFont,
@@ -1222,7 +1213,7 @@ class _HomePageState extends State<HomePage> {
                                           'assets/img/Star.svg'),
                                     ),
                                     Text(
-                                      '3.6',
+                                      (StadiumInfo.stadium[index]['score']),
                                       style: TextStyle(
                                         color: ColorConst.kPrimaryColorYellow,
                                         fontSize: 12,
