@@ -1,16 +1,29 @@
-# examproject
+#SPORT NEWS
 
-A new Flutter project.
+Sport kanali uchun ilova
 
-## Getting Started
+##ILOVA HAQIDA
 
-This project is a starting point for a Flutter application.
+Footbal
 
-A few resources to get you started if this is your first Flutter project:
+##SAHIFALAR
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+###ON BOARD
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="./screenshots/1.png" alt="On Board" width="45%">
+
+###LOGIN
+
+<img src="./screenshots/2.png" alt="Login" width="45%">
+
+###SIGNIN
+
+<img src="./screenshots/3.png" alt="Sign In" width="45%">
+
+###SIGNUP
+
+<img src="./screenshots/4.png" alt="Home" width="45%">
+
+###HOME
+
+<img src="./screenshots/5.png" alt="Bet" width="45%">
