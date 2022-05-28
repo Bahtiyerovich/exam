@@ -1,29 +1,29 @@
-#SPORT NEWS
+# SPORT NEWS
 
 Sport kanali uchun ilova
 
-##ILOVA HAQIDA
+## ILOVA HAQIDA
 
 Footbal
 
-##SAHIFALAR
+## SAHIFALAR
 
-###ON BOARD
+### ON BOARD
 
 <img src="./screenshots/1.png" alt="On Board" width="45%">
 
-###LOGIN
+### LOGIN
 
 <img src="./screenshots/2.png" alt="Login" width="45%">
 
-###SIGNIN
+### SIGNIN
 
 <img src="./screenshots/3.png" alt="Sign In" width="45%">
 
-###SIGNUP
+### SIGNUP
 
 <img src="./screenshots/4.png" alt="Home" width="45%">
 
-###HOME
+### HOME
 
 <img src="./screenshots/5.png" alt="Bet" width="45%">
