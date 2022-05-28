@@ -8,17 +8,17 @@ Footbal
 
 ## SAHIFALAR
 
-### ON BOARD
+### ON BOARD                                                   
 
-<img src="./screenshots/1.png" alt="On Board" width="45%">
+<img src="./screenshots/1.png" alt="On Board" width="45%">   
 
 ### LOGIN
 
 <img src="./screenshots/2.png" alt="Login" width="45%">
 
-### SIGNIN
+### SIGNIN                                 
 
-<img src="./screenshots/3.png" alt="Sign In" width="45%">
+<img src="./screenshots/3.png" alt="Sign In" width="45%">    
 
 ### SIGNUP
 
